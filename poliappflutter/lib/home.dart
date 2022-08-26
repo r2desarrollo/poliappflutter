@@ -76,14 +76,16 @@ class _HomeState extends State<Home> {
     classifyImage(_image);
   }
 
+  //Se puede editar a partir de aquí
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.indigo,
+        backgroundColor: Color.fromARGB(255, 252, 252, 252),
         centerTitle: true,
         title: Text(
-          'Animal Classification',
+          'Reconocer material',
           style: TextStyle(
             color: Colors.white,
             fontWeight: FontWeight.w500,
@@ -92,13 +94,13 @@ class _HomeState extends State<Home> {
         ),
       ),
       body: Container(
-        color: Color.fromRGBO(68, 190, 255, 0.8),
+        color: Color.fromARGB(204, 255, 255, 255),
         padding: EdgeInsets.symmetric(horizontal: 35, vertical: 50),
         child: Container(
           alignment: Alignment.center,
           padding: EdgeInsets.all(30),
           decoration: BoxDecoration(
-            color: Colors.indigo,
+            color: Color.fromARGB(255, 255, 255, 255),
             borderRadius: BorderRadius.circular(30),
           ),
           child: Column(
@@ -129,7 +131,7 @@ class _HomeState extends State<Home> {
                               // ignore: unnecessary_null_comparison
                               _output != null
                                   ? Text(
-                                      'The animal is: ${_output[0]['label']}',
+                                      'El material es: ${_output[0]['label']}',
                                       style: TextStyle(
                                         color: Colors.white,
                                         fontSize: 18,
@@ -161,7 +163,7 @@ class _HomeState extends State<Home> {
                           borderRadius: BorderRadius.circular(15),
                         ),
                         child: Text(
-                          'Take A Photo',
+                          'Tomar una foto',
                           style: TextStyle(color: Colors.white, fontSize: 16),
                         ),
                       ),
@@ -179,7 +181,7 @@ class _HomeState extends State<Home> {
                           borderRadius: BorderRadius.circular(15),
                         ),
                         child: Text(
-                          'Pick From Gallery',
+                          'Escoger de galería',
                           style: TextStyle(color: Colors.white, fontSize: 16),
                         ),
                       ),
