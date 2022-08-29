@@ -83,7 +83,7 @@ class _HomeState extends State<Home> {
         backgroundColor: Colors.indigo,
         centerTitle: true,
         title: Text(
-          'Animal Classification',
+          'Poliplasts App',
           style: TextStyle(
             color: Colors.white,
             fontWeight: FontWeight.w500,

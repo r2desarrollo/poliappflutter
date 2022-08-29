@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:poliappflutter/login_page.dart';
 import 'home.dart';
 
 void main() {
@@ -10,9 +11,17 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Animal Classification',
-      home: Home(),
+      title: 'Poliplasts App',
       debugShowCheckedModeBanner: false,
+      theme: ThemeData(
+        visualDensity: VisualDensity.adaptivePlatformDensity,
+      ),
+      //home: Home(),
+      //debugShowCheckedModeBanner: false,
+      initialRoute: LoginPage.id,
+      routes: {
+        LoginPage.id: (context) => LoginPage(),
+      },
     );
   }
 }
