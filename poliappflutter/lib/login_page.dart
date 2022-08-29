@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+
 class LoginPage extends StatefulWidget {
   static String id = 'login_page';
 
@@ -81,20 +82,49 @@ class _LoginPageState extends State<LoginPage> {
   Widget _bottonLogin() {
     return StreamBuilder(
         builder: (BuildContext context, AsyncSnapshot snapshot) {
-      return RaisedButton(
-          child: Container(
-            padding: EdgeInsets.symmetric(horizontal: 80.0, vertical: 15.0),
-            child: Text(
-              'Iniciar sesión',
-              style: TextStyle(fontSize: 16.0, fontWeight: FontWeight.bold),
-            ),
-          ),
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(10),
-          ),
-          elevation: 10.0,
-          Color: Colors.green,
-          onPressed: () {});
+      
+      final ButtonStyle raisedButtonStyle = ElevatedButton.styleFrom(
+     onPrimary: Colors.black87,
+  primary: Color.fromARGB(255, 23, 182, 103),
+  minimumSize: Size(88, 36),
+  padding: EdgeInsets.symmetric(horizontal: 16),
+  shape: const RoundedRectangleBorder(
+    borderRadius: BorderRadius.all(Radius.circular(2)),
+  ),
+);
+      
+      
+      return ElevatedButton(
+        style: raisedButtonStyle,
+        onPressed: () {
+    Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => const Home()),
+    );
+   },
+  child: Text('Iniciar Sesión'),
+);
     });
+  }
+}
+
+
+//Segunda pantalla, modificar para que aparezca home.dart
+class Home extends StatelessWidget {
+  const Home({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+    
+      body: Center(
+        child: ElevatedButton(
+          onPressed: () {
+            Navigator.pop(context);
+          },
+          child: const Text('Go back!'),
+        ),
+      ),
+    );
   }
 }
