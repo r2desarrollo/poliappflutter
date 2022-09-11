@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-
+import 'inicio.dart';
 
 class LoginPage extends StatefulWidget {
   static String id = 'login_page';
@@ -17,14 +17,27 @@ class _LoginPageState extends State<LoginPage> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Flexible(
-                child: Image.asset(
-                  '../imagenes/logo SAPP.png',
-                  height: 120.0,
+              Text(
+                "¡BIENVENIDO!",
+                textAlign: TextAlign.right,
+                style: TextStyle(
+                  color: Colors.green,
+                  fontSize: 25,
+                  fontWeight: FontWeight.bold,
+                  fontFamily: 'Impact',
                 ),
               ),
               SizedBox(
-                height: 15.0,
+                height: 60.0,
+              ),
+              Flexible(
+                child: Image.asset(
+                  '../imagenes/logoSAPP.png',
+                  height: 180.0,
+                ),
+              ),
+              SizedBox(
+                height: 40.0,
               ),
               _userTextField(),
               SizedBox(
@@ -46,13 +59,13 @@ class _LoginPageState extends State<LoginPage> {
     return StreamBuilder(
         builder: (BuildContext context, AsyncSnapshot snapshot) {
       return Container(
-        padding: EdgeInsets.symmetric(horizontal: 35.0),
+        padding: EdgeInsets.symmetric(horizontal: 40.0),
         child: TextField(
           keyboardType: TextInputType.emailAddress,
           decoration: InputDecoration(
             icon: Icon(Icons.email),
             hintText: 'ejemplo@correo.com',
-            labelText: 'correo eletronico',
+            labelText: 'Correo eletronico',
           ),
           onChanged: (value) {},
         ),
@@ -82,49 +95,27 @@ class _LoginPageState extends State<LoginPage> {
   Widget _bottonLogin() {
     return StreamBuilder(
         builder: (BuildContext context, AsyncSnapshot snapshot) {
-      
       final ButtonStyle raisedButtonStyle = ElevatedButton.styleFrom(
-     onPrimary: Colors.black87,
-  primary: Color.fromARGB(255, 23, 182, 103),
-  minimumSize: Size(88, 36),
-  padding: EdgeInsets.symmetric(horizontal: 16),
-  shape: const RoundedRectangleBorder(
-    borderRadius: BorderRadius.all(Radius.circular(2)),
-  ),
-);
-      
-      
+        onPrimary: Colors.white,
+        primary: Color.fromARGB(255, 23, 182, 103),
+        minimumSize: Size(88, 36),
+        padding: EdgeInsets.symmetric(horizontal: 45),
+        shape: const RoundedRectangleBorder(
+          borderRadius: BorderRadius.all(Radius.circular(8)),
+        ),
+      );
+
       return ElevatedButton(
         style: raisedButtonStyle,
         onPressed: () {
-    Navigator.push(
-              context,
-              MaterialPageRoute(builder: (context) => const Home()),
-    );
-   },
-  child: Text('Iniciar Sesión'),
-);
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => Inicio()),
+          );
+        },
+        child: Text('Iniciar Sesión',
+            style: TextStyle(color: Colors.white, fontSize: 16.0)),
+      );
     });
-  }
-}
-
-
-//Segunda pantalla, modificar para que aparezca home.dart
-class Home extends StatelessWidget {
-  const Home({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-    
-      body: Center(
-        child: ElevatedButton(
-          onPressed: () {
-            Navigator.pop(context);
-          },
-          child: const Text('Go back!'),
-        ),
-      ),
-    );
   }
 }
