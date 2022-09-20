@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:poliappflutter/inicio.dart';
 import 'package:poliappflutter/login_page.dart';
-import 'home.dart';
+import 'clasif.dart';
 
 void main() {
   runApp(MyApp());
@@ -17,11 +17,13 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      //home: Home(),
-      //debugShowCheckedModeBanner: false,
+      
       initialRoute: LoginPage.id,
+      // initialRoute: Clasif.id,
+
       routes: {
         LoginPage.id: (context) => LoginPage(),
+        // Clasif.id: (context) => Clasif(),
       },
     );
   }
