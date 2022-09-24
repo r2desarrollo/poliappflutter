@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'ticket.dart';
 
 class Inicio extends StatefulWidget {
   @override
@@ -42,6 +43,8 @@ class _InicioState extends State<Inicio> {
                     fontSize: 20,
                     fontWeight: FontWeight.bold),
               ),
+              SizedBox(height: 20.0),
+              _bottonTicket(),
             ],
           ),
         ),
@@ -64,7 +67,12 @@ class _InicioState extends State<Inicio> {
 
       return ElevatedButton(
         style: raisedButtonStyle,
-        onPressed: () {},
+        onPressed: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => Ticket()),
+          );
+        },
         child: Text('REVISIÓN DE TICKETS',
             style: TextStyle(color: Colors.white, fontSize: 16.0)),
       );
