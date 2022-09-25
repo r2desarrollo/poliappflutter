@@ -68,7 +68,7 @@ class _ClasifState extends State<Clasif> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Color.fromARGB(255, 255, 255, 255),
+        backgroundColor: Colors.green,
         centerTitle: true,
         title: Text(
           'Clasificación',
@@ -86,8 +86,8 @@ class _ClasifState extends State<Clasif> {
           alignment: Alignment.center,
           padding: EdgeInsets.all(30),
           decoration: BoxDecoration(
-            color: Color.fromARGB(255, 255, 255, 255),
-            borderRadius: BorderRadius.circular(30),
+            color: Colors.white,
+            borderRadius: BorderRadius.circular(15),
           ),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
@@ -103,7 +103,7 @@ class _ClasifState extends State<Clasif> {
                                 height: MediaQuery.of(context).size.width * 0.5,
                                 width: MediaQuery.of(context).size.width * 0.5,
                                 child: ClipRRect(
-                                  borderRadius: BorderRadius.circular(30),
+                                  borderRadius: BorderRadius.circular(8),
                                   child: Image.file( //No quitar
                                     _image, 
                                     fit: BoxFit.fill,
@@ -118,7 +118,7 @@ class _ClasifState extends State<Clasif> {
                                   ? Text(
                                       'El material es: ${_output[0]['label']}', //No modificar esta linea
                                       style: TextStyle(
-                                        color: Color.fromARGB(255, 0, 0, 0),
+                                        color: Colors.black,
                                         fontSize: 18,
                                         fontWeight: FontWeight.w400,
                                       ),
@@ -144,12 +144,12 @@ class _ClasifState extends State<Clasif> {
                         padding:
                             EdgeInsets.symmetric(horizontal: 24, vertical: 17),
                         decoration: BoxDecoration(
-                          color: Color.fromARGB(255, 13, 129, 9),
+                          color: Colors.green,
                           borderRadius: BorderRadius.circular(15),
                         ),
                         child: Text(
                           'Tomar foto',
-                          style: TextStyle(color: Color.fromARGB(255, 0, 0, 0), fontSize: 16),
+                          style: TextStyle(color: Colors.white, fontSize: 16),
                         ),
                       ),
                     ),

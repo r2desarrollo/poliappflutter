@@ -1,3 +1,6 @@
+import 'dart:html';
+import 'clasif.dart';
+
 import 'package:flutter/material.dart';
 
 class Ticket extends StatefulWidget {
@@ -8,55 +11,79 @@ class Ticket extends StatefulWidget {
 }
 
 class _TicketState extends State<Ticket> {
+  
+
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Scaffold(
-        body: Center(
+    return Scaffold(
+      body: SafeArea(           
+        child: Center(  
           child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Text(
-                "Tickets".toUpperCase(),
-                textAlign: TextAlign.right,
-                style: TextStyle(
-                  color: Colors.green,
-                  fontSize: 35,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-              SizedBox(
-                height: 15.0,
-              ),
-              SizedBox(height: 15.0),
+              SizedBox(height: 45.0),
+              Text("TICKETS".toUpperCase(),
+              textAlign: TextAlign.left,
+              style: TextStyle(
+                color: Colors.green,
+                fontSize: 35,
+                fontWeight: FontWeight.bold
+              ),),
+              SizedBox(height: 25.0),
               _bottonTicket(),
-              Divider(height: 10),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
-                children: [
-                  Container(
-                    child: Icon(
-                      Icons.photo,
-                      color: Colors.green,
-                      size: 30.0,
-                    ),
-                  ),
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      Text("Proveedor,", style: TextStyle(fontSize: 15)),
-                      Text("Civic Type R GT ", style: TextStyle(fontSize: 15)),
-                    ],
-                  ),
-                ],
-              ),
-              //PARAAGREGAR OTRO
-            ],
+              SizedBox(
+                height: 25.0,),
+            DataTable(
+                  dividerThickness: 0,
+                  dataRowHeight: 50,
+                  headingRowHeight:50,
+                  columnSpacing: 15,
+                  columns: [
+                      DataColumn(
+            label: Text("Proveedor "),
+            numeric: false,
+            onSort: (i, b) {},
           ),
-        ),
-      ),
+          DataColumn(
+            label: Text("Material"),
+            // no estoy segura si seria falso o true ya que los nombres suelen
+            //tener también numeros...
+            numeric: false,
+            onSort: (i, b) {},
+          ),
+          DataColumn(
+            label: Text("Monto"),
+            numeric: true,
+            onSort: (i, b) {},
+          ),
+          
+        ],
+        rows: <DataRow>[
+          DataRow(cells: <DataCell>[
+            DataCell(Text("Juan")),
+            DataCell(Text("PetNat")),
+            DataCell(Text("80")),   
+            ], 
+            
+          ),
+          DataRow(cells: <DataCell>[
+            DataCell(Text("Saul")),
+            DataCell(Text("PetVerde")),
+            DataCell(Text("100"), ),
+          ] ),
+          DataRow(cells: <DataCell>[
+            DataCell(Text("Raul")),
+            DataCell(Text("Soplo")),
+            DataCell(Text("150")),
+          ]),
+                  ],
+                ),
+            ],            
+          ),
+        ), 
+         ),         
     );
   }
+
 
   Widget _bottonTicket() {
     return StreamBuilder(
@@ -67,7 +94,7 @@ class _TicketState extends State<Ticket> {
         minimumSize: Size(88, 36),
         padding: EdgeInsets.symmetric(horizontal: 15, vertical: 15),
         shape: const RoundedRectangleBorder(
-          borderRadius: BorderRadius.all(Radius.circular(2)),
+          borderRadius: BorderRadius.all(Radius.circular(3)),
         ),
       );
       return ElevatedButton(
@@ -75,10 +102,10 @@ class _TicketState extends State<Ticket> {
         onPressed: () {
           Navigator.push(
             context,
-            MaterialPageRoute(builder: (context) => Ticket()),
+            MaterialPageRoute(builder: (context) => Clasif()),
           );
         },
-        child: Text('Actualizar',
+        child: Text('Actualizar',            
             style: TextStyle(color: Colors.white, fontSize: 13.0)),
       );
     });
