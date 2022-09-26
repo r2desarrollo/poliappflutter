@@ -32,39 +32,23 @@ class _TicketState extends State<Ticket> {
               SizedBox(
                 height: 25.0,),
             DataTable(
-                  dividerThickness: 0,
-                  dataRowHeight: 50,
-                  headingRowHeight:50,
-                  columnSpacing: 15,                 
-                  columns: [
-                      DataColumn(
-            label: Text("Proveedor "),
-            numeric: false,
-            onSort: (i, b) {},
-          ),
-          DataColumn(
-            label: Text("Material"),
-            // no estoy segura si seria falso o true ya que los nombres suelen
-            //tener también numeros...
-            numeric: false,
-            onSort: (i, b) {},
-          ),
-          DataColumn(
-            label: Text("Monto"),
-            numeric: true,
-            onSort: (i, b) {},
-          ),     
-          //   DataColumn( 
-          //   label: Text(""),
-          //   numeric: true,
-          //   onSort: (i, b) {},
-          // ),
-        ],
+                 columns: <DataColumn>[
+              new DataColumn(
+                label: Text('Suggestions'),
+              ),
+              new DataColumn(label: Text('Name')),
+              new DataColumn(label: Text('Votes')),
+              new DataColumn(label: Text('')), 
+            ],
         rows: <DataRow>[
           DataRow(cells: <DataCell>[
             DataCell(Text("Juan")),
             DataCell(Text("PetNat")),
             DataCell(Text("80")),  
+            DataCell((_bottonPhoto()))
+,  
+
+ 
              //DataCell(_bottonPhoto(),)
             ], 
             
@@ -73,13 +57,15 @@ class _TicketState extends State<Ticket> {
             DataCell(Text("Saul")),
             DataCell(Text("PetVerde")),
             DataCell(Text("100"), ),
-            //DataCell(Icon(Icons.add_a_photo))
+            DataCell(Icon(Icons.add_a_photo))
+
+
           ] ),
           DataRow(cells: <DataCell>[
             DataCell(Text("Raul")),
             DataCell(Text("Soplo")),
             DataCell(Text("150")),
-            //DataCell(Icon(Icons.add_a_photo))
+            DataCell(Icon(Icons.add_a_photo))
           ]),
                   ],
                 ),
