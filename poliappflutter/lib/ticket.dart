@@ -34,10 +34,10 @@ class _TicketState extends State<Ticket> {
               DataTable(
                 columns: <DataColumn>[
                   new DataColumn(
-                    label: Text('Suggestions'),
+                    label: Text('Proveedor '),
                   ),
-                  new DataColumn(label: Text('Name')),
-                  new DataColumn(label: Text('Votes')),
+                  new DataColumn(label: Text('Material')),
+                  new DataColumn(label: Text('Monto')),
                   new DataColumn(label: Text('')),
                 ],
                 rows: <DataRow>[
