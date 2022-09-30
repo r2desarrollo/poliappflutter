@@ -1,5 +1,9 @@
 import 'dart:html';
+import 'package:poliappflutter/models/pesaje.dart';
+
 import 'clasif.dart';
+import 'pesaje.dart';
+
 import 'package:flutter/material.dart';
 
 class Ticket extends StatefulWidget {
@@ -87,7 +91,7 @@ class _TicketState extends State<Ticket> {
         onPressed: () {
           Navigator.push(
             context,
-            MaterialPageRoute(builder: (context) => Clasif()),
+            MaterialPageRoute(builder: (context) => MyApp()),
           );
         },
         child: Text('Actualizar',
