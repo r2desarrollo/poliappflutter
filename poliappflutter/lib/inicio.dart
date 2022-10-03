@@ -18,32 +18,32 @@ class _InicioState extends State<Inicio> {
               Text(
                 "¡PESADOR!".toUpperCase(),
                 textAlign: TextAlign.right,
-                style: TextStyle(
+                style: const TextStyle(
                   color: Colors.green,
                   fontSize: 25,
                   fontWeight: FontWeight.bold,
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 30.0,
               ),
               Flexible(
                 child: Image.asset(
-                  '../imagenes/poli.jpeg',
+                  'imagenes/poli.jpeg',
                   height: 180.0,
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 40.0,
               ),
-              Text(
+              const Text(
                 "Nombre del pesador",
                 style: TextStyle(
                     color: Colors.green,
                     fontSize: 20,
                     fontWeight: FontWeight.bold),
               ),
-              SizedBox(height: 20.0),
+              const SizedBox(height: 20.0),
               _bottonTicket(),
             ],
           ),
@@ -56,10 +56,10 @@ class _InicioState extends State<Inicio> {
     return StreamBuilder(
         builder: (BuildContext context, AsyncSnapshot snapshot) {
       final ButtonStyle raisedButtonStyle = ElevatedButton.styleFrom(
-        onPrimary: Colors.white,
-        primary: Color.fromARGB(255, 23, 182, 103),
-        minimumSize: Size(88, 36),
-        padding: EdgeInsets.symmetric(horizontal: 45, vertical: 50),
+        foregroundColor: Colors.white,
+        backgroundColor: const Color.fromARGB(255, 23, 182, 103),
+        minimumSize: const Size(88, 36),
+        padding: const EdgeInsets.symmetric(horizontal: 45, vertical: 50),
         shape: const RoundedRectangleBorder(
           borderRadius: BorderRadius.all(Radius.circular(8)),
         ),
@@ -70,10 +70,10 @@ class _InicioState extends State<Inicio> {
         onPressed: () {
           Navigator.push(
             context,
-            MaterialPageRoute(builder: (context) => Ticket()),
+            MaterialPageRoute(builder: (context) => const Ticket()),
           );
         },
-        child: Text('REVISIÓN DE TICKETS',
+        child: const Text('REVISIÓN DE TICKETS',
             style: TextStyle(color: Colors.white, fontSize: 16.0)),
       );
     });

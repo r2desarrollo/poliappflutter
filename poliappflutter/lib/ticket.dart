@@ -1,8 +1,5 @@
-import 'dart:html';
-import 'package:poliappflutter/models/pesaje.dart';
 
 import 'clasif.dart';
-import 'pesaje.dart';
 
 import 'package:flutter/material.dart';
 
@@ -21,48 +18,48 @@ class _TicketState extends State<Ticket> {
         child: Center(
           child: Column(
             children: [
-              SizedBox(height: 45.0),
+              const SizedBox(height: 45.0),
               Text(
                 "TICKETS".toUpperCase(),
                 textAlign: TextAlign.left,
-                style: TextStyle(
+                style: const TextStyle(
                     color: Colors.green,
                     fontSize: 35,
                     fontWeight: FontWeight.bold),
               ),
-              SizedBox(height: 25.0),
+              const SizedBox(height: 25.0),
               _bottonTicket(),
-              SizedBox(
+              const SizedBox(
                 height: 25.0,
               ),
               DataTable(
-                columns: <DataColumn>[
-                  new DataColumn(
+                columns: const <DataColumn>[
+                  DataColumn(
                     label: Text('Proveedor '),
                   ),
-                  new DataColumn(label: Text('Material')),
-                  new DataColumn(label: Text('Monto')),
-                  new DataColumn(label: Text('')),
+                  DataColumn(label: Text('Material')),
+                  DataColumn(label: Text('Monto')),
+                  DataColumn(label: Text('')),
                 ],
                 rows: <DataRow>[
                   DataRow(
                     cells: <DataCell>[
-                      DataCell(Text("Juan")),
-                      DataCell(Text("PetNat")),
-                      DataCell(Text("80")),
+                      const DataCell(Text("Juan")),
+                      const DataCell(Text("PetNat")),
+                      const DataCell(Text("80")),
                       DataCell((_bottonPhoto())),
                     ],
                   ),
                   DataRow(cells: <DataCell>[
-                    DataCell(Text("Saul")),
-                    DataCell(Text("PetVerde")),
-                    DataCell(Text("100")),
+                    const DataCell(Text("Saul")),
+                    const DataCell(Text("PetVerde")),
+                    const DataCell(Text("100")),
                     DataCell((_bottonPhoto()))
                   ]),
                   DataRow(cells: <DataCell>[
-                    DataCell(Text("Raul")),
-                    DataCell(Text("Soplo")),
-                    DataCell(Text("150")),
+                    const DataCell(Text("Raul")),
+                    const DataCell(Text("Soplo")),
+                    const DataCell(Text("150")),
                     DataCell((_bottonPhoto()))
                   ]),
                 ],
@@ -78,33 +75,9 @@ class _TicketState extends State<Ticket> {
     return StreamBuilder(
         builder: (BuildContext context, AsyncSnapshot snapshot) {
       final ButtonStyle raisedButtonStyle = ElevatedButton.styleFrom(
-        onPrimary: Colors.white,
-        primary: Color.fromARGB(255, 23, 182, 103),
-        minimumSize: Size(88, 36),
-        padding: EdgeInsets.symmetric(horizontal: 15, vertical: 15),
-        shape: const RoundedRectangleBorder(
-          borderRadius: BorderRadius.all(Radius.circular(3)),
-        ),
-      );
-      return ElevatedButton(
-        style: raisedButtonStyle,
-        onPressed: () {
-          Navigator.push(
-            context,
-            MaterialPageRoute(builder: (context) => MyApp()),
-          );
-        },
-        child: Text('Actualizar',
-            style: TextStyle(color: Colors.white, fontSize: 13.0)),
-      );
-    });
-  }
-
-  Widget _bottonPhoto() {
-    return StreamBuilder(
-        builder: (BuildContext context, AsyncSnapshot snapshot) {
-      final ButtonStyle raisedButtonStyle = ElevatedButton.styleFrom(
-        primary: Color.fromARGB(255, 23, 182, 103),
+        foregroundColor: Colors.white, backgroundColor: const Color.fromARGB(255, 23, 182, 103),
+        minimumSize: const Size(88, 36),
+        padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 15),
         shape: const RoundedRectangleBorder(
           borderRadius: BorderRadius.all(Radius.circular(3)),
         ),
@@ -117,7 +90,30 @@ class _TicketState extends State<Ticket> {
             MaterialPageRoute(builder: (context) => Clasif()),
           );
         },
-        child: Icon(Icons.add_a_photo),
+        child: const Text('Actualizar',
+            style: TextStyle(color: Colors.white, fontSize: 13.0)),
+      );
+    });
+  }
+
+  Widget _bottonPhoto() {
+    return StreamBuilder(
+        builder: (BuildContext context, AsyncSnapshot snapshot) {
+      final ButtonStyle raisedButtonStyle = ElevatedButton.styleFrom(
+        backgroundColor: const Color.fromARGB(255, 23, 182, 103),
+        shape: const RoundedRectangleBorder(
+          borderRadius: BorderRadius.all(Radius.circular(3)),
+        ),
+      );
+      return ElevatedButton(
+        style: raisedButtonStyle,
+        onPressed: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => Clasif()),
+          );
+        },
+        child: const Icon(Icons.add_a_photo),
       );
     });
   }

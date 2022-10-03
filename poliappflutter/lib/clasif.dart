@@ -70,7 +70,7 @@ class _ClasifState extends State<Clasif> {
       appBar: AppBar(
         backgroundColor: Colors.green,
         centerTitle: true,
-        title: Text(
+        title: const Text(
           'Clasificación',
           style: TextStyle(
             color: Colors.white,
@@ -80,11 +80,11 @@ class _ClasifState extends State<Clasif> {
         ),
       ),
       body: Container(
-        color: Color.fromARGB(204, 255, 255, 255),
-        padding: EdgeInsets.symmetric(horizontal: 35, vertical: 50),
+        color: const Color.fromARGB(204, 255, 255, 255),
+        padding: const EdgeInsets.symmetric(horizontal: 35, vertical: 50),
         child: Container(
           alignment: Alignment.center,
-          padding: EdgeInsets.all(30),
+          padding: const EdgeInsets.all(30),
           decoration: BoxDecoration(
             color: Colors.white,
             borderRadius: BorderRadius.circular(15),
@@ -99,7 +99,7 @@ class _ClasifState extends State<Clasif> {
                       : Container(
                           child: Column(
                             children: [
-                              Container(
+                              SizedBox(
                                 height: MediaQuery.of(context).size.width * 0.5,
                                 width: MediaQuery.of(context).size.width * 0.5,
                                 child: ClipRRect(
@@ -110,21 +110,21 @@ class _ClasifState extends State<Clasif> {
                                   ),
                                 ),
                               ),
-                              Divider(
+                              const Divider(
                                 height: 25,
                                 thickness: 1,
                               ),
                               _output != null
                                   ? Text(
                                       'El material es: ${_output[0]['label']}', //No modificar esta linea
-                                      style: TextStyle(
+                                      style: const TextStyle(
                                         color: Colors.black,
                                         fontSize: 18,
                                         fontWeight: FontWeight.w400,
                                       ),
                                     )
                                   : Container(),
-                              Divider(
+                              const Divider(
                                 height: 25,
                                 thickness: 1,
                               ),
@@ -142,12 +142,12 @@ class _ClasifState extends State<Clasif> {
                         width: MediaQuery.of(context).size.width - 200,
                         alignment: Alignment.center,
                         padding:
-                            EdgeInsets.symmetric(horizontal: 24, vertical: 17),
+                            const EdgeInsets.symmetric(horizontal: 24, vertical: 17),
                         decoration: BoxDecoration(
                           color: Colors.green,
                           borderRadius: BorderRadius.circular(15),
                         ),
-                        child: Text(
+                        child: const Text(
                           'Tomar foto',
                           style: TextStyle(color: Colors.white, fontSize: 16),
                         ),

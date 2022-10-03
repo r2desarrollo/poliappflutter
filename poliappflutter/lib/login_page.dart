@@ -17,7 +17,7 @@ class _LoginPageState extends State<LoginPage> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Text(
+              const Text(
                 "¡BIENVENIDO!",
                 textAlign: TextAlign.right,
                 style: TextStyle(
@@ -27,24 +27,24 @@ class _LoginPageState extends State<LoginPage> {
                   fontFamily: 'Impact',
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 60.0,
               ),
               Flexible(
                 child: Image.asset(
-                  '../imagenes/logoSAPP.png',
+                  'imagenes/logoSAPP.png',
                   height: 180.0,
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 40.0,
               ),
               _userTextField(),
-              SizedBox(
+              const SizedBox(
                 height: 15,
               ),
               _passwordTextField(),
-              SizedBox(
+              const SizedBox(
                 height: 20.0,
               ),
               _bottonLogin(),
@@ -59,10 +59,10 @@ class _LoginPageState extends State<LoginPage> {
     return StreamBuilder(
         builder: (BuildContext context, AsyncSnapshot snapshot) {
       return Container(
-        padding: EdgeInsets.symmetric(horizontal: 40.0),
+        padding: const EdgeInsets.symmetric(horizontal: 40.0),
         child: TextField(
           keyboardType: TextInputType.emailAddress,
-          decoration: InputDecoration(
+          decoration: const InputDecoration(
             icon: Icon(Icons.email),
             hintText: 'ejemplo@correo.com',
             labelText: 'Correo eletronico',
@@ -77,11 +77,11 @@ class _LoginPageState extends State<LoginPage> {
     return StreamBuilder(
         builder: (BuildContext context, AsyncSnapshot snapshot) {
       return Container(
-        padding: EdgeInsets.symmetric(horizontal: 35.0),
+        padding: const EdgeInsets.symmetric(horizontal: 35.0),
         child: TextField(
           keyboardType: TextInputType.emailAddress,
           obscureText: true,
-          decoration: InputDecoration(
+          decoration: const InputDecoration(
             icon: Icon(Icons.lock),
             hintText: 'Contraseña',
             labelText: 'Contraseña',
@@ -96,10 +96,10 @@ class _LoginPageState extends State<LoginPage> {
     return StreamBuilder(
         builder: (BuildContext context, AsyncSnapshot snapshot) {
       final ButtonStyle raisedButtonStyle = ElevatedButton.styleFrom(
-        onPrimary: Colors.white,
-        primary: Color.fromARGB(255, 23, 182, 103),
-        minimumSize: Size(88, 36),
-        padding: EdgeInsets.symmetric(horizontal: 45),
+        foregroundColor: Colors.white,
+        backgroundColor: const Color.fromARGB(255, 23, 182, 103),
+        minimumSize: const Size(88, 36),
+        padding: const EdgeInsets.symmetric(horizontal: 45),
         shape: const RoundedRectangleBorder(
           borderRadius: BorderRadius.all(Radius.circular(8)),
         ),
@@ -113,7 +113,7 @@ class _LoginPageState extends State<LoginPage> {
             MaterialPageRoute(builder: (context) => Inicio()),
           );
         },
-        child: Text('Iniciar Sesión',
+        child: const Text('Iniciar Sesión',
             style: TextStyle(color: Colors.white, fontSize: 16.0)),
       );
     });

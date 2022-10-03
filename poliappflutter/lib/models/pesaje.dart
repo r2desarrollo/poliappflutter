@@ -33,24 +33,22 @@ class Pesaje {
  }
 
  Map<String,dynamic> toMap(){
-  var map=Map<String,dynamic>();
+  var map=<String,dynamic>{};
   map["material"]=_material;
   map["pesoneto"]=_pesoneto;
   map["evidencia"]=_evidencia;
   map["sucursal"]=_sucursal;
  
-  if(_id !=null){
-    map["id"]=_id;
-  }
+  map["id"]=_id;
   return map;
  }
 
  Pesaje.fromObject(dynamic o){
-  this._id=o["id"];
-  this._material=o["material"];
-  this._pesoneto=o["pesoneto"];
-  this._evidencia=o["evidencia"];
-  this._sucursal=o["sucursal"];
+  _id=o["id"];
+  _material=o["material"];
+  _pesoneto=o["pesoneto"];
+  _evidencia=o["evidencia"];
+  _sucursal=o["sucursal"];
 
  }
 
