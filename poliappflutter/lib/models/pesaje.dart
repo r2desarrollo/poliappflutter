@@ -1,57 +1,61 @@
+// To parse this JSON data, do
+//
+//     final pesaje = pesajeFromJson(jsonString);
+
+import 'dart:convert';
+
+List<Pesaje> pesajeFromJson(String str) => List<Pesaje>.from(json.decode(str).map((x) => Pesaje.fromJson(x)));
+
+String pesajeToJson(List<Pesaje> data) => json.encode(List<dynamic>.from(data.map((x) => x.toJson())));
+
 class Pesaje {
- late int _id;
- late int _material; 
- late double _pesoneto; 
- late String _evidencia; 
- late int _sucursal; 
- late int _proveedor; 
+    Pesaje({
+        required this.id,
+        required this.material,
+        required this.pesoneto,
+        this.evidencia,
+        required this.sucursal,
+        required this.proveedor,
+        this.materialNavigation,
+        this.proveedorNavigation,
+        this.sucursalNavigation,
+        required this.reporte,
+    });
 
- Pesaje(this._material,this._pesoneto,this._evidencia,this._sucursal,this._proveedor);
- Pesaje.WithId(this._id,this._material,this._pesoneto,this._evidencia,this._sucursal,this._proveedor);
- 
+    int id;
+    int material;
+    int pesoneto;
+    dynamic evidencia;
+    int sucursal;
+    int proveedor;
+    dynamic materialNavigation;
+    dynamic proveedorNavigation;
+    dynamic sucursalNavigation;
+    List<dynamic> reporte;
 
- int get id=>_id;
- int get material=>_material;
- double get pesoneto=>_pesoneto;
- String get evidencia=>_evidencia;
- int get sucursal=>_sucursal;
+    factory Pesaje.fromJson(Map<String, dynamic> json) => Pesaje(
+        id: json["id"],
+        material: json["material"],
+        pesoneto: json["pesoneto"],
+        evidencia: json["evidencia"],
+        sucursal: json["sucursal"],
+        proveedor: json["proveedor"],
+        materialNavigation: json["materialNavigation"],
+        proveedorNavigation: json["proveedorNavigation"],
+        sucursalNavigation: json["sucursalNavigation"],
+        reporte: List<dynamic>.from(json["reporte"].map((x) => x)),
+    );
 
- set material(int newmaterial){
-  _material=newmaterial;
- }
-
- set pesoneto(double newpesoneto){
-  _pesoneto=newpesoneto;
- }
-
- set evidencia(String newevidencia){
-  _evidencia=newevidencia;
- }
-
- set sucursal(int newsucursal){
-  _sucursal=newsucursal;
- }
-
- Map<String,dynamic> toMap(){
-  var map=Map<String,dynamic>();
-  map["material"]=_material;
-  map["pesoneto"]=_pesoneto;
-  map["evidencia"]=_evidencia;
-  map["sucursal"]=_sucursal;
- 
-  if(_id !=null){
-    map["id"]=_id;
-  }
-  return map;
- }
-
- Pesaje.fromObject(dynamic o){
-  this._id=o["id"];
-  this._material=o["material"];
-  this._pesoneto=o["pesoneto"];
-  this._evidencia=o["evidencia"];
-  this._sucursal=o["sucursal"];
-
- }
-
+    Map<String, dynamic> toJson() => {
+        "id": id,
+        "material": material,
+        "pesoneto": pesoneto,
+        "evidencia": evidencia,
+        "sucursal": sucursal,
+        "proveedor": proveedor,
+        "materialNavigation": materialNavigation,
+        "proveedorNavigation": proveedorNavigation,
+        "sucursalNavigation": sucursalNavigation,
+        "reporte": List<dynamic>.from(reporte.map((x) => x)),
+    };
 }

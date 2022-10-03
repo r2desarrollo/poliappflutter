@@ -1,8 +1,8 @@
-import 'dart:html';
 import 'package:poliappflutter/models/pesaje.dart';
+import 'package:poliappflutter/providers/pesaje_provider.dart';
+import 'package:provider/provider.dart';
 
 import 'clasif.dart';
-import 'pesaje.dart';
 
 import 'package:flutter/material.dart';
 
@@ -16,6 +16,8 @@ class Ticket extends StatefulWidget {
 class _TicketState extends State<Ticket> {
   @override
   Widget build(BuildContext context) {
+  final pesajeProvider = Provider.of<Pesaje_provider>(context);
+  pesajeProvider.getPesajes();
     return Scaffold(
       body: SafeArea(
         child: Center(
@@ -91,7 +93,7 @@ class _TicketState extends State<Ticket> {
         onPressed: () {
           Navigator.push(
             context,
-            MaterialPageRoute(builder: (context) => MyApp()),
+            MaterialPageRoute(builder: (context) => Clasif()),
           );
         },
         child: Text('Actualizar',
