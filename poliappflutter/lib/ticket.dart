@@ -1,4 +1,3 @@
-
 import 'package:provider/provider.dart';
 
 import 'clasif.dart';
@@ -17,6 +16,7 @@ class Ticket extends StatefulWidget {
 class _TicketState extends State<Ticket> {
   @override
   Widget build(BuildContext context) {
+
     return Scaffold(
       body: SafeArea(
         child: Center(
@@ -37,6 +37,7 @@ class _TicketState extends State<Ticket> {
                 height: 25.0,
               ),
               DataTable(
+                
                 columns: const <DataColumn>[
                   DataColumn(
                     label: Text('Proveedor '),
@@ -76,7 +77,6 @@ class _TicketState extends State<Ticket> {
   }
 
   Widget _bottonTicket() {
-    final pesajeProvider = Provider.of<Pesaje_provider>(context);
     return StreamBuilder(
         builder: (BuildContext context, AsyncSnapshot snapshot) {
       final ButtonStyle raisedButtonStyle = ElevatedButton.styleFrom(
@@ -90,7 +90,6 @@ class _TicketState extends State<Ticket> {
       return ElevatedButton(
         style: raisedButtonStyle,
         onPressed: () {
-         print(pesajeProvider.pesajes);
         },
         child: const Text('Actualizar',
             style: TextStyle(color: Colors.white, fontSize: 13.0)),
