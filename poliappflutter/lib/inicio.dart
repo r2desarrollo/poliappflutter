@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'ticket.dart';
 
 class Inicio extends StatefulWidget {
+      static String id = 'inicio';
+
   @override
   _InicioState createState() => _InicioState();
 }

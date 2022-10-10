@@ -127,9 +127,12 @@ class _LoginPageState extends State<LoginPage> {
                                             usuarioProvider.password)
                                         .length >
                                     0) {
-                              Navigator.pushReplacementNamed(context, 'Inicio');
+                               Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => Inicio()),
+                               );
                             } else {
-                              print('buuuu');
+                              print('Error');
                             }
                           },
                         )
