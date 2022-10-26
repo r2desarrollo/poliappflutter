@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:poliappflutter/login_page.dart';
+import 'package:poliappflutter/providers/pesaje_provider.dart';
 import 'package:poliappflutter/providers/usuario_provider.dart';
 import 'package:provider/provider.dart';
 
@@ -12,7 +13,11 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MultiProvider(
-      providers: [ChangeNotifierProvider(create: (_) => Usuario_provider())],
+      providers: [
+        ChangeNotifierProvider<Usuario_provider>(create: (context) => Usuario_provider()),
+        ChangeNotifierProvider<PesajeProvider>(create: (context) => PesajeProvider()),
+
+      ],
       child: MaterialApp(
         title: 'Poliplasts App',
         debugShowCheckedModeBanner: false,

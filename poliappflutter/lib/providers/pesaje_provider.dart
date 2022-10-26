@@ -1,28 +1,26 @@
 import 'package:flutter/cupertino.dart';
 import 'package:poliappflutter/models/pesaje.dart';
+import 'package:poliappflutter/services/pesaje_services.dart';
 import '../constants.dart';
 import 'package:http/http.dart' as http;
 
+class PesajeProvider extends ChangeNotifier {
+  final _service = PesajeService();
+  bool isLoading = false;
+  List<DataModel> _pesajes = [];
+  List<DataModel> get pesajes => _pesajes;
 
-final urlapi = url;
-class Pesaje_provider with ChangeNotifier{
-  List<Pesaje> pesajes = [];
+  Future<void> getAllPesajes() async {
+    isLoading = true;
+    notifyListeners();
 
-  Pesaje_provider(){
-    getPesajes();
-  }
+    final response = await _service.getAll();
 
-  getPesajes() async {
-    final url1 = Uri.http(urlapi, 'api/pesaje');
-    final resp = await http.get(url1, headers: {
-       "Access-Control-Allow-Origin": "*",
-       "Acces-Control-Allow-Credentials": "true",
-       'Content-type': 'application/json',
-       'Accept' : 'application/json'
-    });
-
-    final response = pesajeFromJson(resp.body);
-    pesajes = response;
+    _pesajes = response;
+    isLoading = false;
     notifyListeners();
   }
+
+
+
 }

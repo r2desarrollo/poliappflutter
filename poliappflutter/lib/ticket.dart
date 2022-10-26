@@ -12,71 +12,55 @@ class Ticket extends StatefulWidget {
 
   @override
   State<Ticket> createState() => _TicketState();
+
 }
+
 
 class _TicketState extends State<Ticket> {
   @override
+void initState() {
+    super.initState();
+    WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
+      Provider.of<PesajeProvider>(context, listen: false).getAllPesajes();
+    });
+  }
+
+@override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SafeArea(
-        child: Center(
-          child: Column(
-            children: [
-              const SizedBox(height: 45.0),
-              Text(
-                "TICKETS".toUpperCase(),
-                textAlign: TextAlign.left,
-                style: const TextStyle(
-                    color: Colors.green,
-                    fontSize: 35,
-                    fontWeight: FontWeight.bold),
-              ),
-              const SizedBox(height: 25.0),
-              _bottonTicket(),
-              const SizedBox(
-                height: 25.0,
-              ),
-              DataTable(
-                columns: const <DataColumn>[
-                  DataColumn(
-                    label: Text('Proveedor '),
+      appBar: AppBar(
+        title: const Text('Provider API'),
+      ),
+      body: Consumer<PesajeProvider>(
+        builder: (context, value, child) {
+          if (value.isLoading) {
+            return const Center(
+              child: CircularProgressIndicator(),
+            );
+          }
+          final pesajes = value.pesajes;
+          return ListView.builder(
+            itemCount: pesajes.length,
+            itemBuilder: (context, index) {
+              final pesaje = pesajes[index];
+              return ListTile(
+                leading: CircleAvatar(
+                  child: Text(pesaje.id.toString()),
+                ),
+                title: Text(
+                  pesaje.evidencia,
+                  style: TextStyle(
                   ),
-                  DataColumn(label: Text('Material')),
-                  DataColumn(label: Text('Monto')),
-                  DataColumn(label: Text('')),
-                ],
-                rows: <DataRow>[
-                  DataRow(
-                    cells: <DataCell>[
-                      const DataCell(Text("Juan")),
-                      const DataCell(Text("PetNat")),
-                      const DataCell(Text("80")),
-                      DataCell((_bottonPhoto())),
-                    ],
-                  ),
-                  DataRow(cells: <DataCell>[
-                    const DataCell(Text("Saul")),
-                    const DataCell(Text("PetVerde")),
-                    const DataCell(Text("100")),
-                    DataCell((_bottonPhoto()))
-                  ]),
-                  DataRow(cells: <DataCell>[
-                    const DataCell(Text("Raul")),
-                    const DataCell(Text("Soplo")),
-                    const DataCell(Text("150")),
-                    DataCell((_bottonPhoto()))
-                  ]),
-                ],
-              ),
-            ],
-          ),
-        ),
+                ),
+              );
+            },
+          );
+        },
       ),
     );
   }
 
   Widget _bottonTicket() {
-    final pesajeProvider = Provider.of<Pesaje_provider>(context);
     return StreamBuilder(
         builder: (BuildContext context, AsyncSnapshot snapshot) {
       final ButtonStyle raisedButtonStyle = ElevatedButton.styleFrom(
@@ -90,7 +74,6 @@ class _TicketState extends State<Ticket> {
       return ElevatedButton(
         style: raisedButtonStyle,
         onPressed: () {
-         print(pesajeProvider.pesajes);
         },
         child: const Text('Actualizar',
             style: TextStyle(color: Colors.white, fontSize: 13.0)),

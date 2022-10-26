@@ -13,7 +13,7 @@ class LoginPage extends StatefulWidget {
 
 class _LoginPageState extends State<LoginPage> {
   @override
-@override
+  @override
   Widget build(BuildContext context) {
     final TextEditingController txtCorreo = TextEditingController();
     final TextEditingController txtPassword = TextEditingController();
@@ -104,8 +104,8 @@ class _LoginPageState extends State<LoginPage> {
                         MaterialButton(
                           shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(10)),
-                          disabledColor: Colors.grey,
-                          color: Colors.deepPurple,
+                          disabledColor: Color.fromARGB(255, 34, 96, 36),
+                          color: Colors.green,
                           child: Container(
                             padding: const EdgeInsets.symmetric(
                                 horizontal: 80, vertical: 15),
@@ -127,10 +127,11 @@ class _LoginPageState extends State<LoginPage> {
                                             usuarioProvider.password)
                                         .length >
                                     0) {
-                               Navigator.push(
-            context,
-            MaterialPageRoute(builder: (context) => Inicio()),
-                               );
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => Inicio()),
+                              );
                             } else {
                               print('Error');
                             }
@@ -142,10 +143,6 @@ class _LoginPageState extends State<LoginPage> {
                 ],
               )),
           const SizedBox(height: 50),
-          const Text(
-            'Crear una nueva cuenta',
-            style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-          )
         ],
       ),
     );
@@ -156,10 +153,9 @@ class _LoginPageState extends State<LoginPage> {
       child: Container(
         margin: const EdgeInsets.only(top: 30),
         width: double.infinity,
-        child: const Icon(
-          Icons.person_pin,
-          color: Colors.white,
-          size: 100,
+        child: Image.asset(
+          'imagenes/logoSAPP.png',
+          height: 180.0,
         ),
       ),
     );
@@ -169,8 +165,8 @@ class _LoginPageState extends State<LoginPage> {
     return Container(
       decoration: const BoxDecoration(
           gradient: LinearGradient(colors: [
-        Color.fromRGBO(63, 63, 156, 1),
-        Color.fromRGBO(90, 70, 178, 1),
+        Colors.green,
+        Colors.green,
       ])),
       width: double.infinity,
       height: size.height * 0.4,
@@ -192,7 +188,7 @@ class _LoginPageState extends State<LoginPage> {
       height: 100,
       decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(100),
-          color: const Color.fromRGBO(255, 255, 255, 0.05)),
+          color: Color.fromARGB(11, 213, 25, 25)),
     );
   }
 }
