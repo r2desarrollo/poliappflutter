@@ -58,8 +58,8 @@ class _InicioState extends State<Inicio> {
     return StreamBuilder(
         builder: (BuildContext context, AsyncSnapshot snapshot) {
       final ButtonStyle raisedButtonStyle = ElevatedButton.styleFrom(
-        // foregroundColor: Colors.white,
-        // backgroundColor: const Color.fromARGB(255, 23, 182, 103),
+        foregroundColor: Colors.white,
+        backgroundColor: const Color.fromARGB(255, 23, 182, 103),
         minimumSize: const Size(88, 36),
         padding: const EdgeInsets.symmetric(horizontal: 45, vertical: 50),
         shape: const RoundedRectangleBorder(

@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "296320554732",
+    "project_id": "poliappflutter-baa2d",
+    "storage_bucket": "poliappflutter-baa2d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:296320554732:android:af652b4e9cd1ce03d9f7c9",
+        "android_client_info": {
+          "package_name": "com.example.poliappflutter"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "296320554732-57abv648v06r719ktv2a2u9amuuuorcr.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDXTzgtySW9mw1jLj28-FXLJUt8OtAdKXw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "296320554732-57abv648v06r719ktv2a2u9amuuuorcr.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "296320554732-v23serijb3sp6p0krk811arfe3ts438h.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.poliappflutter"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

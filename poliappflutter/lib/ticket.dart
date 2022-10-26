@@ -53,6 +53,7 @@ void initState() {
                   ),
                 ),
               );
+              
             },
           );
         },
@@ -64,7 +65,7 @@ void initState() {
     return StreamBuilder(
         builder: (BuildContext context, AsyncSnapshot snapshot) {
       final ButtonStyle raisedButtonStyle = ElevatedButton.styleFrom(
-        // foregroundColor: Colors.white, backgroundColor: const Color.fromARGB(255, 23, 182, 103),
+        foregroundColor: Colors.white, backgroundColor: const Color.fromARGB(255, 23, 182, 103),
         minimumSize: const Size(88, 36),
         padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 15),
         shape: const RoundedRectangleBorder(
@@ -85,7 +86,7 @@ void initState() {
     return StreamBuilder(
         builder: (BuildContext context, AsyncSnapshot snapshot) {
       final ButtonStyle raisedButtonStyle = ElevatedButton.styleFrom(
-        // backgroundColor: const Color.fromARGB(255, 23, 182, 103),
+        backgroundColor: const Color.fromARGB(255, 23, 182, 103),
         shape: const RoundedRectangleBorder(
           borderRadius: BorderRadius.all(Radius.circular(3)),
         ),
