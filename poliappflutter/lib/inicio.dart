@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'ticket.dart';
 
 class Inicio extends StatefulWidget {
-      static String id = 'inicio';
+  static String id = 'inicio';
 
   @override
   _InicioState createState() => _InicioState();
@@ -13,6 +13,17 @@ class _InicioState extends State<Inicio> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
+        appBar: AppBar(
+          backgroundColor: const Color.fromARGB(255, 23, 182, 103),
+          title: Text('Poliplasts'),
+          centerTitle: true,
+          actions: <Widget>[
+            IconButton(
+              icon: new Icon(Icons.logout_rounded),
+              onPressed: () => print('hi on icon action'),
+            ),
+          ],
+        ),
         body: Center(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
@@ -32,18 +43,11 @@ class _InicioState extends State<Inicio> {
               Flexible(
                 child: Image.asset(
                   'imagenes/poli.jpeg',
-                  height: 180.0,
+                  height: 200.0,
                 ),
               ),
               const SizedBox(
                 height: 40.0,
-              ),
-              const Text(
-                "Nombre del pesador",
-                style: TextStyle(
-                    color: Colors.green,
-                    fontSize: 20,
-                    fontWeight: FontWeight.bold),
               ),
               const SizedBox(height: 20.0),
               _bottonTicket(),

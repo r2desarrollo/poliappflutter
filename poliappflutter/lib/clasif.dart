@@ -153,6 +153,8 @@ class _ClasifState extends State<Clasif> {
                         ),
                       ),
                     ),
+                    const SizedBox(height: 20.0),
+              _bottoncarga(),
                   ],
                 ),
               ),
@@ -161,5 +163,33 @@ class _ClasifState extends State<Clasif> {
         ),
       ),
     );
+
+Widget _bottoncarga() {
+    return StreamBuilder(
+        builder: (BuildContext context, AsyncSnapshot snapshot) {
+      final ButtonStyle raisedButtonStyle = ElevatedButton.styleFrom(
+        foregroundColor: Colors.white,
+        backgroundColor: const Color.fromARGB(255, 23, 182, 103),
+        minimumSize: const Size(88, 36),
+        padding: const EdgeInsets.symmetric(horizontal: 45, vertical: 50),
+        shape: const RoundedRectangleBorder(
+          borderRadius: BorderRadius.all(Radius.circular(8)),
+        ),
+      );
+
+      return ElevatedButton(
+        style: raisedButtonStyle,
+        onPressed: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => const ()),   //aqui sale en rojo, no he puesto a que pantalla va dirigida
+          );
+        },
+        child: const Text('CARGAR FOTO',
+            style: TextStyle(color: Colors.white, fontSize: 16.0)),
+      );
+    });
+  }
+
   }
 }

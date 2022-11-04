@@ -1,4 +1,3 @@
-
 import 'package:provider/provider.dart';
 
 import 'clasif.dart';
@@ -12,23 +11,22 @@ class Ticket extends StatefulWidget {
 
   @override
   State<Ticket> createState() => _TicketState();
-
 }
-
 
 class _TicketState extends State<Ticket> {
   @override
-void initState() {
+  void initState() {
     super.initState();
     WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
       Provider.of<PesajeProvider>(context, listen: false).getAllPesajes();
     });
   }
 
-@override
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: const Color.fromARGB(255, 23, 182, 103),
         title: const Text('Provider API'),
       ),
       body: Consumer<PesajeProvider>(
@@ -49,11 +47,9 @@ void initState() {
                 ),
                 title: Text(
                   pesaje.evidencia,
-                  style: TextStyle(
-                  ),
+                  style: TextStyle(),
                 ),
               );
-              
             },
           );
         },
@@ -65,7 +61,8 @@ void initState() {
     return StreamBuilder(
         builder: (BuildContext context, AsyncSnapshot snapshot) {
       final ButtonStyle raisedButtonStyle = ElevatedButton.styleFrom(
-        foregroundColor: Colors.white, backgroundColor: const Color.fromARGB(255, 23, 182, 103),
+        foregroundColor: Colors.white,
+        backgroundColor: const Color.fromARGB(255, 23, 182, 103),
         minimumSize: const Size(88, 36),
         padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 15),
         shape: const RoundedRectangleBorder(
@@ -74,8 +71,7 @@ void initState() {
       );
       return ElevatedButton(
         style: raisedButtonStyle,
-        onPressed: () {
-        },
+        onPressed: () {},
         child: const Text('Actualizar',
             style: TextStyle(color: Colors.white, fontSize: 13.0)),
       );
