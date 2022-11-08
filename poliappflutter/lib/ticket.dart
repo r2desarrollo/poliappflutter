@@ -22,39 +22,52 @@ class _TicketState extends State<Ticket> {
     });
   }
 
+  void onRefresh() {
+    print('ounter value :');
+    WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
+      Provider.of<PesajeProvider>(context, listen: false).getAllPesajes();
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: const Color.fromARGB(255, 23, 182, 103),
-        title: const Text('Provider API'),
-      ),
-      body: Consumer<PesajeProvider>(
-        builder: (context, value, child) {
-          if (value.isLoading) {
-            return const Center(
-              child: CircularProgressIndicator(),
-            );
-          }
-          final pesajes = value.pesajes;
-          return ListView.builder(
-            itemCount: pesajes.length,
-            itemBuilder: (context, index) {
-              final pesaje = pesajes[index];
-              return ListTile(
-                leading: CircleAvatar(
-                  child: Text(pesaje.id.toString()),
-                ),
-                title: Text(
-                  pesaje.evidencia,
-                  style: TextStyle(),
-                ),
-              );
-            },
-          );
-        },
-      ),
-    );
+        appBar: AppBar(
+          backgroundColor: const Color.fromARGB(255, 23, 182, 103),
+          title: const Text('Provider API'),
+        ),
+        body: Center(
+          child: Column(children: [
+            const SizedBox(height: 20.0),
+            _bottonTicket(),
+            const SizedBox(height: 20.0),
+            Consumer<PesajeProvider>(
+              builder: (context, value, child) {
+                if (value.isLoading) {
+                  return const Center(
+                    child: CircularProgressIndicator(),
+                  );
+                }
+                final pesajes = value.pesajes;
+                return ListView.builder(
+                  itemCount: pesajes.length,
+                  itemBuilder: (context, index) {
+                    final pesaje = pesajes[index];
+                    return ListTile(
+                      leading: CircleAvatar(
+                        child: Text(pesaje.id.toString()),
+                      ),
+                      title: Text(
+                        pesaje.evidencia,
+                        style: TextStyle(),
+                      ),
+                    );
+                  },
+                );
+              },
+            ),
+          ]),
+        ));
   }
 
   Widget _bottonTicket() {
@@ -71,9 +84,9 @@ class _TicketState extends State<Ticket> {
       );
       return ElevatedButton(
         style: raisedButtonStyle,
-        onPressed: () {},
+        onPressed: onRefresh,
         child: const Text('Actualizar',
-            style: TextStyle(color: Colors.white, fontSize: 13.0)),
+            style: TextStyle(color: Colors.white, fontSize: 15.0)),
       );
     });
   }

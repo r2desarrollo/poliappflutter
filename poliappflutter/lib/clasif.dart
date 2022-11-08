@@ -1,10 +1,11 @@
 import 'dart:io';
 import 'package:flutter/material.dart';
+import 'package:poliappflutter/ticket.dart';
 import 'package:tflite/tflite.dart';
 import 'package:image_picker/image_picker.dart';
 
 class Clasif extends StatefulWidget {
-    static String id = 'clasif';
+  static String id = 'clasif';
 
   @override
   _ClasifState createState() => _ClasifState();
@@ -33,8 +34,7 @@ class _ClasifState extends State<Clasif> {
   classifyImage(File image) async {
     var output = await Tflite.runModelOnImage(
       path: image.path,
-      numResults:
-          12, //Número de categorías
+      numResults: 12, //Número de categorías
       threshold: 0.5,
       imageMean: 127.5,
       imageStd: 127.5,
@@ -62,6 +62,34 @@ class _ClasifState extends State<Clasif> {
     classifyImage(_image);
   }
 
+  Widget _bottoncarga() {
+    return StreamBuilder(
+        builder: (BuildContext context, AsyncSnapshot snapshot) {
+      final ButtonStyle raisedButtonStyle = ElevatedButton.styleFrom(
+        foregroundColor: Colors.white,
+        backgroundColor: const Color.fromARGB(255, 23, 182, 103),
+        minimumSize: const Size(88, 36),
+        padding: const EdgeInsets.symmetric(horizontal: 45, vertical: 50),
+        shape: const RoundedRectangleBorder(
+          borderRadius: BorderRadius.all(Radius.circular(8)),
+        ),
+      );
+
+      return ElevatedButton(
+        style: raisedButtonStyle,
+        onPressed: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+                builder: (context) =>
+                    const Ticket()), //aqui sale en rojo, no he puesto a que pantalla va dirigida
+          );
+        },
+        child: const Text('CARGAR FOTO',
+            style: TextStyle(color: Colors.white, fontSize: 16.0)),
+      );
+    });
+  }
 
 //A partir de aquí se puede modificar
   @override
@@ -104,8 +132,9 @@ class _ClasifState extends State<Clasif> {
                                 width: MediaQuery.of(context).size.width * 0.5,
                                 child: ClipRRect(
                                   borderRadius: BorderRadius.circular(8),
-                                  child: Image.file( //No quitar
-                                    _image, 
+                                  child: Image.file(
+                                    //No quitar
+                                    _image,
                                     fit: BoxFit.fill,
                                   ),
                                 ),
@@ -141,8 +170,8 @@ class _ClasifState extends State<Clasif> {
                       child: Container(
                         width: MediaQuery.of(context).size.width - 200,
                         alignment: Alignment.center,
-                        padding:
-                            const EdgeInsets.symmetric(horizontal: 24, vertical: 17),
+                        padding: const EdgeInsets.symmetric(
+                            horizontal: 24, vertical: 17),
                         decoration: BoxDecoration(
                           color: Colors.green,
                           borderRadius: BorderRadius.circular(15),
@@ -154,7 +183,7 @@ class _ClasifState extends State<Clasif> {
                       ),
                     ),
                     const SizedBox(height: 20.0),
-              _bottoncarga(),
+                    _bottoncarga(),
                   ],
                 ),
               ),
@@ -163,33 +192,5 @@ class _ClasifState extends State<Clasif> {
         ),
       ),
     );
-
-Widget _bottoncarga() {
-    return StreamBuilder(
-        builder: (BuildContext context, AsyncSnapshot snapshot) {
-      final ButtonStyle raisedButtonStyle = ElevatedButton.styleFrom(
-        foregroundColor: Colors.white,
-        backgroundColor: const Color.fromARGB(255, 23, 182, 103),
-        minimumSize: const Size(88, 36),
-        padding: const EdgeInsets.symmetric(horizontal: 45, vertical: 50),
-        shape: const RoundedRectangleBorder(
-          borderRadius: BorderRadius.all(Radius.circular(8)),
-        ),
-      );
-
-      return ElevatedButton(
-        style: raisedButtonStyle,
-        onPressed: () {
-          Navigator.push(
-            context,
-            MaterialPageRoute(builder: (context) => const ()),   //aqui sale en rojo, no he puesto a que pantalla va dirigida
-          );
-        },
-        child: const Text('CARGAR FOTO',
-            style: TextStyle(color: Colors.white, fontSize: 16.0)),
-      );
-    });
-  }
-
   }
 }

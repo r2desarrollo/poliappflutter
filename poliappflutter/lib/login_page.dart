@@ -37,6 +37,20 @@ class _LoginPageState extends State<LoginPage> {
   SingleChildScrollView loginform(BuildContext context,
       TextEditingController txtCorreo, TextEditingController txtPassword) {
     final usuarioProvider = Provider.of<Usuario_provider>(context);
+    void ingresar() {
+      var usuarios = usuarioProvider.usuarios;
+      if (usuarios.where((e) => e.email == usuarioProvider.email).length > 0 &&
+          usuarios.where((e) => e.password == usuarioProvider.password).length >
+              0) {
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => Inicio()),
+        );
+      } else {
+        print('Error');
+      }
+    }
+
     return SingleChildScrollView(
       child: Column(
         children: [
@@ -111,31 +125,10 @@ class _LoginPageState extends State<LoginPage> {
                                 horizontal: 80, vertical: 15),
                             child: const Text(
                               'Ingresar',
-                              style: TextStyle(color: Colors.white),
+                              style: const TextStyle(color: Colors.white),
                             ),
                           ),
-                          onPressed: () {
-                            var usuarios = usuarioProvider.usuarios;
-                            if (usuarios
-                                        .where((e) =>
-                                            e.email == usuarioProvider.email)
-                                        .length >
-                                    0 &&
-                                usuarios
-                                        .where((e) =>
-                                            e.password ==
-                                            usuarioProvider.password)
-                                        .length >
-                                    0) {
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => Inicio()),
-                              );
-                            } else {
-                              print('Error');
-                            }
-                          },
+                          onPressed: ingresar,
                         )
                       ],
                     ),
