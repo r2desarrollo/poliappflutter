@@ -128,13 +128,7 @@ class _LoginPageState extends State<LoginPage> {
                               style: const TextStyle(color: Colors.white),
                             ),
                           ),
-                          onPressed: () {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) => Inicio()),
-                            );
-                          },
+                          onPressed: ingresar,
                         )
                       ],
                     ),
