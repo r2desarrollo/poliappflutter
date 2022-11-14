@@ -96,17 +96,16 @@ class _ClasifState extends State<Clasif> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.green,
-        centerTitle: true,
-        title: const Text(
-          'Clasificación',
-          style: TextStyle(
-            color: Colors.white,
-            fontWeight: FontWeight.w500,
-            fontSize: 23,
-          ),
+          backgroundColor: const Color.fromARGB(255, 23, 182, 103),
+          title: Text('Clasificación'),
+          centerTitle: true,
+          actions: <Widget>[
+            IconButton(
+              icon: new Icon(Icons.logout_rounded),
+              onPressed: () => print('hi on icon action'),
+            ),
+          ],
         ),
-      ),
       body: Container(
         color: const Color.fromARGB(204, 255, 255, 255),
         padding: const EdgeInsets.symmetric(horizontal: 35, vertical: 50),
@@ -173,7 +172,7 @@ class _ClasifState extends State<Clasif> {
                         padding: const EdgeInsets.symmetric(
                             horizontal: 24, vertical: 17),
                         decoration: BoxDecoration(
-                          color: Colors.green,
+                          color: const Color.fromARGB(255, 23, 182, 103),
                           borderRadius: BorderRadius.circular(15),
                         ),
                         child: const Text(

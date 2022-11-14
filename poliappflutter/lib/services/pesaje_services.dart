@@ -5,7 +5,7 @@ import 'package:poliappflutter/models/pesaje.dart';
 
 class PesajeService {
   Future<List<DataModel>> getAll() async {
-    const url = 'http://192.168.0.24:85/api/pesaje';
+    const url = 'http://192.168.1.110:5001/api/pesaje';
     final uri = Uri.parse(url);
     final response = await http.get(uri);
     if (response.statusCode == 200) {
