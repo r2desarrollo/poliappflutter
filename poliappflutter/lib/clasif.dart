@@ -1,6 +1,7 @@
 import 'dart:io';
 import 'package:flutter/material.dart';
-import 'package:poliappflutter/ticket.dart';
+// import 'package:poliappflutter/ticket.dart';
+import 'package:poliappflutter/tickets2.dart';
 import 'package:tflite/tflite.dart';
 import 'package:image_picker/image_picker.dart';
 
@@ -69,9 +70,9 @@ class _ClasifState extends State<Clasif> {
         foregroundColor: Colors.white,
         backgroundColor: const Color.fromARGB(255, 23, 182, 103),
         minimumSize: const Size(88, 36),
-        padding: const EdgeInsets.symmetric(horizontal: 45, vertical: 50),
+        padding: const EdgeInsets.symmetric(horizontal: 110, vertical: 24),
         shape: const RoundedRectangleBorder(
-          borderRadius: BorderRadius.all(Radius.circular(8)),
+          borderRadius: BorderRadius.all(Radius.circular(15)),
         ),
       );
 
@@ -82,11 +83,11 @@ class _ClasifState extends State<Clasif> {
             context,
             MaterialPageRoute(
                 builder: (context) =>
-                    const Ticket()), //aqui sale en rojo, no he puesto a que pantalla va dirigida
+                    const Tickets2()), //aqui sale en rojo, no he puesto a que pantalla va dirigida
           );
         },
-        child: const Text('CARGAR FOTO',
-            style: TextStyle(color: Colors.white, fontSize: 16.0)),
+        child: const Text('Cargar foto',
+            style: TextStyle(color: Colors.white, fontSize: 16)),
       );
     });
   }
@@ -96,16 +97,16 @@ class _ClasifState extends State<Clasif> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-          backgroundColor: const Color.fromARGB(255, 23, 182, 103),
-          title: Text('Clasificación'),
-          centerTitle: true,
-          actions: <Widget>[
-            IconButton(
-              icon: new Icon(Icons.logout_rounded),
-              onPressed: () => print('hi on icon action'),
-            ),
-          ],
-        ),
+        backgroundColor: const Color.fromARGB(255, 23, 182, 103),
+        title: Text('Clasificación'),
+        centerTitle: true,
+        actions: <Widget>[
+          IconButton(
+            icon: new Icon(Icons.logout_rounded),
+            onPressed: () => print('hi on icon action'),
+          ),
+        ],
+      ),
       body: Container(
         color: const Color.fromARGB(204, 255, 255, 255),
         padding: const EdgeInsets.symmetric(horizontal: 35, vertical: 50),

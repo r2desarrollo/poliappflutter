@@ -29,7 +29,7 @@ class _InicioState extends State<Inicio> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Text(
-                "¡PESADOR!".toUpperCase(),
+                "¡HOLA, BIENVENIDO!".toUpperCase(),
                 textAlign: TextAlign.right,
                 style: const TextStyle(
                   color: Colors.green,
@@ -43,7 +43,7 @@ class _InicioState extends State<Inicio> {
               Flexible(
                 child: Image.asset(
                   'imagenes/poli.jpeg',
-                  height: 200.0,
+                  height: 250.0,
                 ),
               ),
               const SizedBox(
