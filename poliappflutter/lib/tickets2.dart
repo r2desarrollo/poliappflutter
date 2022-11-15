@@ -15,7 +15,6 @@ class Tickets2 extends StatefulWidget {
 class _Tickets2State extends State<Tickets2> {
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
   }
 

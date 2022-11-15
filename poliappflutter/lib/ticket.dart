@@ -42,7 +42,6 @@ class _TicketState extends State<Ticket> {
               child: CircularProgressIndicator(),
             );
           }
-          body:
           Column(
             children: <Widget>[
               Container(
