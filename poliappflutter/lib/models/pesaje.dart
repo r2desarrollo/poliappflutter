@@ -1,15 +1,12 @@
 class DataModel {
 
     int id;
-    int material;
+    String material;
     int pesoneto;
     String evidencia;
-    int sucursal;
-    int proveedor;
-    dynamic materialNavigation;
-    dynamic proveedorNavigation;
-    dynamic sucursalNavigation;
-    List<dynamic> reporte;
+    String sucursal;
+    String proveedor;
+
 
   DataModel({
    required this.id,
@@ -18,10 +15,7 @@ class DataModel {
         required this.evidencia,
         required this.sucursal,
         required this.proveedor,
-        this.materialNavigation,
-        this.proveedorNavigation,
-        this.sucursalNavigation,
-        required this.reporte});
+        });
 
   factory DataModel.fromJson(Map<String, dynamic> json) {
     return DataModel(
@@ -31,10 +25,7 @@ class DataModel {
       evidencia: json['evidencia'],
       sucursal: json['sucursal'],
       proveedor: json['proveedor'],
-      materialNavigation: json['materialNavigation'],
-      proveedorNavigation: json['proveedorNavigation'],
-      sucursalNavigation: json['sucursalNavigation'],
-      reporte: List<dynamic>.from(json["reporte"].map((x) => x)),
+     
     );
   }
 }

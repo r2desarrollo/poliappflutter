@@ -18,20 +18,16 @@ class Usuario {
         required this.nivel,
         this.foto,
         required this.prol,
-        this.sucursalNavigation,
-        required this.reporte,
     });
 
     int id;
     String nombre;
     String email;
     String password;
-    int sucursal;
+    String sucursal;
     int nivel;
     dynamic foto;
     int prol;
-    dynamic sucursalNavigation;
-    List<dynamic> reporte;
 
     factory Usuario.fromJson(Map<String, dynamic> json) => Usuario(
         id: json["id"],
@@ -41,9 +37,7 @@ class Usuario {
         sucursal: json["sucursal"],
         nivel: json["nivel"],
         foto: json["foto"],
-        prol: json["prol"],
-        sucursalNavigation: json["sucursalNavigation"],
-        reporte: List<dynamic>.from(json["reporte"].map((x) => x)),
+        prol: json["prol"]
     );
 
     Map<String, dynamic> toJson() => {
@@ -55,7 +49,5 @@ class Usuario {
         "nivel": nivel,
         "foto": foto,
         "prol": prol,
-        "sucursalNavigation": sucursalNavigation,
-        "reporte": List<dynamic>.from(reporte.map((x) => x)),
     };
 }

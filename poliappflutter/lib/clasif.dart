@@ -1,23 +1,23 @@
 import 'dart:io';
 import 'package:flutter/material.dart';
-// import 'package:poliappflutter/ticket.dart';
-import 'package:poliappflutter/tickets2.dart';
+import 'package:poliappflutter/ticket.dart';
 import 'package:tflite/tflite.dart';
 import 'package:image_picker/image_picker.dart';
+import 'ticket.dart';
+
+
+
 
 class Clasif extends StatefulWidget {
   static String id = 'clasif';
-
   @override
   _ClasifState createState() => _ClasifState();
 }
-
 class _ClasifState extends State<Clasif> {
   bool _loading = true;
   late File _image;
   late List _output;
   final picker = ImagePicker(); //Escoger imagen de cámara
-
   @override
   void initState() {
     super.initState();
@@ -25,13 +25,11 @@ class _ClasifState extends State<Clasif> {
       setState(() {});
     });
   }
-
   @override
   void dispose() {
     super.dispose();
     Tflite.close();
   }
-
   classifyImage(File image) async {
     var output = await Tflite.runModelOnImage(
       path: image.path,
@@ -45,24 +43,20 @@ class _ClasifState extends State<Clasif> {
       _loading = false;
     });
   }
-
   loadModel() async {
     await Tflite.loadModel(
       model: 'assets/model_unquant.tflite',
       labels: 'assets/labels.txt',
     );
   }
-
   pickImage() async {
     var image = await picker.pickImage(source: ImageSource.camera);
     if (image == null) return null;
-
     setState(() {
       _image = File(image.path);
     });
     classifyImage(_image);
   }
-
   Widget _bottoncarga() {
     return StreamBuilder(
         builder: (BuildContext context, AsyncSnapshot snapshot) {
@@ -70,43 +64,39 @@ class _ClasifState extends State<Clasif> {
         foregroundColor: Colors.white,
         backgroundColor: const Color.fromARGB(255, 23, 182, 103),
         minimumSize: const Size(88, 36),
-        padding: const EdgeInsets.symmetric(horizontal: 110, vertical: 24),
+        padding: const EdgeInsets.symmetric(horizontal: 45, vertical: 50),
         shape: const RoundedRectangleBorder(
-          borderRadius: BorderRadius.all(Radius.circular(15)),
+          borderRadius: BorderRadius.all(Radius.circular(8)),
         ),
       );
-
       return ElevatedButton(
         style: raisedButtonStyle,
         onPressed: () {
           Navigator.push(
             context,
-            MaterialPageRoute(
-                builder: (context) =>
-                    const Tickets2()), //aqui sale en rojo, no he puesto a que pantalla va dirigida
+              MaterialPageRoute(builder: (context) => Ticket()),
           );
         },
-        child: const Text('Cargar foto',
-            style: TextStyle(color: Colors.white, fontSize: 16)),
+        child: const Text('CARGAR FOTO',
+            style: TextStyle(color: Colors.white, fontSize: 16.0)),
       );
     });
   }
-
 //A partir de aquí se puede modificar
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: const Color.fromARGB(255, 23, 182, 103),
-        title: Text('Clasificación'),
-        centerTitle: true,
-        actions: <Widget>[
-          IconButton(
-            icon: new Icon(Icons.logout_rounded),
-            onPressed: () => print('hi on icon action'),
-          ),
-        ],
-      ),
+          backgroundColor: const Color.fromARGB(255, 23, 182, 103),
+          title: Text('Clasificación'),
+          centerTitle: true,
+          actions: <Widget>[
+            IconButton(
+              icon: new Icon(Icons.logout_rounded),
+              onPressed: () => print('hi on icon action'),
+            ),
+          ],
+        ),
       body: Container(
         color: const Color.fromARGB(204, 255, 255, 255),
         padding: const EdgeInsets.symmetric(horizontal: 35, vertical: 50),

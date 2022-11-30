@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'ticket.dart';
+import 'clasif.dart';
+
 
 class Inicio extends StatefulWidget {
   static String id = 'inicio';
@@ -76,7 +78,7 @@ class _InicioState extends State<Inicio> {
         onPressed: () {
           Navigator.push(
             context,
-            MaterialPageRoute(builder: (context) => const Ticket()),
+              MaterialPageRoute(builder: (context) => Clasif()),
           );
         },
         child: const Text('REVISIÓN DE TICKETS',

@@ -39,6 +39,8 @@ android {
         jvmTarget = '1.8'
     }
 
+    
+
     sourceSets {
         main.java.srcDirs += 'src/main/kotlin'
     }
@@ -46,6 +48,11 @@ android {
     aaptOptions {
         noCompress 'tflite'
         noCompress 'lite'
+    }
+
+    packagingOptions {
+        pickFirst '**/libc++_shared.so'
+        pickFirst '**/libfbjni.so'
     }
 
     defaultConfig {
